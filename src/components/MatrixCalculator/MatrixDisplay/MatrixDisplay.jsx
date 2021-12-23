@@ -1,8 +1,9 @@
 import React from 'react';
 import Latex from 'react-latex-next';
 import 'katex/dist/katex.css';
+import MatrixStyle from '../MatrixStyle.module.css';
 
-export function Matrix({ matrix }) {
+export function MatrixDisplay({ matrix }) {
 	let rows = matrix.rows
 		.map((row) => row.map((e) => {
 						if (e.den < 0) {
@@ -17,8 +18,10 @@ export function Matrix({ matrix }) {
 		.toString()
 		.replaceAll(',', '');
 
-	const test = 'We give illustrations for the three processes $e^+e^-$, gluon-gluon and $\\gamma\\gamma \\to W t\\bar b$.'
+	const latex_matrix = `$\\begin{pmatrix} ${rows} \\end{pmatrix}$`
 	return (
-		<Latex>{test}</Latex>
+		<div className={MatrixStyle.container}>
+			<Latex>{latex_matrix}</Latex>
+		</div>
 	);
 }

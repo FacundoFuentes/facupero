@@ -1,4 +1,5 @@
-import { Matrix } from "./MatrixDisplay/MatrixDisplay";
+import { MatrixDisplay } from "./MatrixDisplay/MatrixDisplay";
+import { MatrixForm } from "./MatrixForm/MatrixForm"
 import { FracMatrix } from "./algorithms/matrix";
 
 const test_matrix = new FracMatrix([
@@ -10,6 +11,6 @@ const test_matrix = new FracMatrix([
 
 export default function MatrixCalculator() {
     return (
-        <Matrix matrix={test_matrix}></Matrix>
+        <MatrixDisplay matrix={test_matrix}></MatrixDisplay>
     )
 }
