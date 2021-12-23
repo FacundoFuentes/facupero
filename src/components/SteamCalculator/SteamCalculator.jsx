@@ -9,6 +9,9 @@ const SteamCalculator = () => {
                 <h1>CALCULATOR.</h1>
                 <button>START</button>
             </div>
+            <div className={style.steamCalculatorLogo}>
+                <i class="fab fa-steam"></i>
+            </div>
         </div>
     )
 }
