@@ -7,8 +7,10 @@ import store from './Redux/store/index'
 import { Provider } from 'react-redux';
 
 ReactDOM.render(
-  <BrowserRouter>
-        <App />
-  </BrowserRouter>,
+  <React.StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode>,
   document.getElementById('root')
 );
