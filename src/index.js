@@ -7,8 +7,10 @@ import store from './Redux/store/index'
 import { Provider } from 'react-redux';
 
 ReactDOM.render(
-  <BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
         <App />
-  </BrowserRouter>,
+      </BrowserRouter>
+    </Provider>,
   document.getElementById('root')
 );

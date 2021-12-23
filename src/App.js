@@ -6,6 +6,7 @@ import {
   Route
 } from "react-router-dom";
 import SteamCalculator from './components/SteamCalculator/SteamCalculator';
+import MatrixCalculator from './components/MatrixCalculator/MatrixCalculator';
 
 function App() {
   return (
@@ -13,10 +14,11 @@ function App() {
       <Navbar/>
       <Routes>
         <Route path="/" element={<Landing/>} />
-        <Route path="steam-calculator" element={<SteamCalculator/>} />
+        <Route path="steam-calculator" element={<SteamCalculator />} />
+        <Route path="matrix-calculator" element={<MatrixCalculator/>}/>
       </Routes>
     </div>
-  );
+  )
 }
 
 export default App;
