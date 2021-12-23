@@ -5,12 +5,12 @@ import style from './Navbar.module.css'
 const Navbar = () => {
 	return (
 		<div className={style.nav_container}>
-			<Nav variant="pills" defaultActiveKey="/home">
+			<Nav variant="pills" defaultActiveKey="first">
 				<Nav.Item>
-					<Nav.Link href="/home">Active</Nav.Link>
+					<Nav.Link eventKey="first">Active</Nav.Link>
 				</Nav.Item>
 				<Nav.Item>
-					<Nav.Link eventKey="link-1">Option 2</Nav.Link>
+					<Nav.Link eventKey="second">Option 2</Nav.Link>
 				</Nav.Item>
 			</Nav>
 		</div>
