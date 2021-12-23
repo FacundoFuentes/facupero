@@ -14,8 +14,8 @@ function App() {
       <Navbar/>
       <Routes>
         <Route path="/" element={<Landing/>} />
-        <Route path="/steam-calculator" element={<SteamCalculator />} />
-        <Route path="/matrix-calculator" element={<MatrixCalculator/>}/>
+        <Route path="steam-calculator" element={<SteamCalculator />} />
+        <Route path="matrix-calculator" element={<MatrixCalculator/>}/>
       </Routes>
     </div>
   )
