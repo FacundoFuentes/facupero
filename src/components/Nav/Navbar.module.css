@@ -1,5 +1,17 @@
-.nav_container {
+.navbar_container {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    padding: 20px;
+}
+
+.navbar {
+    display: flex;
+    gap: 10px;
+}
+
+
+.navbar_icon {
+    font-size: 30px;
+    color: #78ffd6;
 }
