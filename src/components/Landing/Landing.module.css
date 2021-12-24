@@ -17,3 +17,25 @@
     font-family: 'Geo', sans-serif;
     font-size: 50px;
 }
+
+.main a{
+    font-size: 23px;
+    text-decoration: none;
+    border-radius: 7px;
+    margin: 10px;
+    padding: 8px;
+    color: #E6F9AF;
+    background-image: linear-gradient(90deg,#18314F,#E6F9AF);
+    background-size: 1000px;
+    background-position-x: 0vw;
+    transform: scale(1);
+    transition: color 0.2s cubic-bezier(0.13, 0.74, 0.36, 0.98)
+                ,background-position-x 0.5s cubic-bezier(0.13, 0.74, 0.36, 0.98)
+                ,transform 0.2s;
+}
+
+.main a:hover{
+    color: #18314F;
+    background-position-x: 10vw;
+    transform: scale(1.3);
+}
