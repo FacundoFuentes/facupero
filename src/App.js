@@ -7,13 +7,15 @@ import {
 } from "react-router-dom";
 import SteamCalculator from './components/SteamCalculator/SteamCalculator';
 import MatrixCalculator from './components/MatrixCalculator/MatrixCalculator';
+import Home from './components/Home/Home';
 
 function App() {
   return (
     <div>
       <Navbar/>
       <Routes>
-        <Route path="/" element={<Landing/>} />
+        <Route path="/" element={<Landing />} />
+        <Route path="home" element={<Home/>} />
         <Route path="steam-calculator" element={<SteamCalculator />} />
         <Route path="matrix-calculator" element={<MatrixCalculator/>}/>
       </Routes>
