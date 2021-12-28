@@ -10,6 +10,10 @@
     gap: 10px;
 }
 
+.navbar_items{
+    color:tomato;
+    background-color: #8BBEB2;
+}
 
 .navbar_icon {
     font-size: 30px;
