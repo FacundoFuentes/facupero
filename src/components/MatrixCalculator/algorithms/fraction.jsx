@@ -1,5 +1,8 @@
 export default class FractionClass{
     constructor(num, den = 1) {
+        while (parseInt(num) !== num) {
+            num *= 10; den *= 10;
+        }
         let gcd = findGCD(num, den);
         this.num = num / gcd;
         this.den = den / gcd;
