@@ -12,11 +12,7 @@ export default function Home() {
     return (
         <div id='Home' className={Style.Home}>
             <Card name='Steam Calculator' desc={SteamCalculator_desc} img={SteamCalculator_icon}></Card>
-            <Card name='Steam Calculator' desc={SteamCalculator_desc} img={SteamCalculator_icon}></Card>
-            <Card name='Steam Calculator' desc={SteamCalculator_desc} img={SteamCalculator_icon}></Card>
-            <Card name='Steam Calculator' desc={SteamCalculator_desc} img={SteamCalculator_icon}></Card>
-            <Card name='Steam Calculator' desc={SteamCalculator_desc} img={SteamCalculator_icon}></Card>
-            <Card name='Steam Calculator' desc={SteamCalculator_desc} img={SteamCalculator_icon}></Card>
+            <Card name='Matrix Calculator' desc={MatrixCalculator_desc} img={MatrixCalculator_icon}></Card>
         </div>
     )
 }
