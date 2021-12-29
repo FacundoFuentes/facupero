@@ -1,5 +1,7 @@
 .matrixForm{
     width: fit-content;
+    display:flex;
+    margin: 0px 30px;
 }
 
 .matrixForm input[type=number]{
@@ -12,4 +14,8 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+.matrixForm button{
+  top: 50%;
 }
