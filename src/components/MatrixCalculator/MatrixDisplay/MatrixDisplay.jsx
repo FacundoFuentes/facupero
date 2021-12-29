@@ -1,5 +1,6 @@
 import React from 'react';
 import 'katex/dist/katex.css';
+import MatrixParenthesis from '../MatrixParenthesis';
 import style from './MatrixDisplay.module.css';
 
 export default function MatrixDisplay({ matrix }) {
@@ -25,11 +26,11 @@ export default function MatrixDisplay({ matrix }) {
 
 	return (
 		<div className={style.display}>
-			<h1 style={parenthesisStyle}>(</h1>
+			<MatrixParenthesis>
 			<table>
 				<tbody>{table}</tbody>
 			</table>
-			<h1 style={parenthesisStyle}>)</h1>
+			</MatrixParenthesis>
 		</div>
 	);
 }
