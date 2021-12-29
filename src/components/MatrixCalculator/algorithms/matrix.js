@@ -37,7 +37,7 @@ export class FloatMatrix{
         }
     }
     
-    multiplyConstant(k) {
+    constant(k) {
         for (let i = 0; i < this.numberOf.columns; i++){
             for (let j = 0; j < this.numberOf.rows; j++) {
                 this.rows[i][j] *= k;
@@ -124,7 +124,7 @@ export class FloatMatrix{
     }
 
     inverse() {
-        return this.cofactorMatrix().transpose().multiplyConstant(1/FloatMatrix.determinant(this))
+        return this.cofactorMatrix().transpose().constant(1/FloatMatrix.determinant(this))
     }
 
 	print() {
@@ -159,6 +159,16 @@ export class FracMatrix{
 				sum_rows.push(m1.rows[i].map((e, index) => FractionClass.add(e,m2.rows[i][index])));
 			}
 			return new FracMatrix(sum_rows);
+		} else throw Error('Las matrices no tienen igual dimension.');
+    }
+
+    static substract(m1, m2) {
+        if (this.checkDimensions(m1, m2)) {
+			let dif_rows = []
+			for (let i = 0; i < m1.numberOf.rows; i++) {
+				dif_rows.push(m1.rows[i].map((e, index) => FractionClass.substract(e,m2.rows[i][index])));
+			}
+			return new FracMatrix(dif_rows);
 		} else throw Error('Las matrices no tienen igual dimension.');
     }
 
@@ -239,7 +249,7 @@ export class FracMatrix{
     }
 
     inverse() {
-        return this.cofactorMatrix().transpose().multiplyConstant(new FractionClass(this.determinant().den,this.determinant().num))
+        return this.cofactorMatrix().transpose().constant(new FractionClass(this.determinant().den,this.determinant().num))
     }
 
     static LUdecomp(matrix) {
@@ -255,7 +265,7 @@ export class FracMatrix{
         return this
     }
 
-    multiplyConstant(k) {
+    constant(k) {
         if (!k.hasOwnProperty('den')) k = new FractionClass(k);
         this.iterate(e => FractionClass.product(e, k))
         return this;

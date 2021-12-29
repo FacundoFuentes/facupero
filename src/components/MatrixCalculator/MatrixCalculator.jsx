@@ -1,47 +1,53 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
-import MatrixDisplay from "./MatrixDisplay/MatrixDisplay";
-import MatrixForm from "./MatrixForm/MatrixForm";
-import { FracMatrix } from "./algorithms/matrix";
-import style from "./MatrixCalculator.module.css";
-
-const test_matrix = new FracMatrix([
-	[1.2,0,0,3.1],
-	[1.5,1,0,0],
-  	[0,1,1,0],
-  	[0,0,0,1]
-]);
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import MatrixDisplay from './MatrixDisplay/MatrixDisplay';
+import MatrixForm from './MatrixForm/MatrixForm';
+import { FracMatrix } from './algorithms/matrix';
+import style from './MatrixCalculator.module.css';
 
 export default function MatrixCalculator() {
-	let counter = 1, default_size = 3;
-	const dispatch = useDispatch()
+	let default_size = 3;
+	const [state, setState] = useState({
+		forms: [
+			<MatrixForm id={0} key={0} size={{ rows: default_size, cols: default_size }} />,
+			<MatrixForm id={1} key={1} size={{ rows: default_size, cols: default_size }} />
+		],
+	});
+	const dispatch = useDispatch();
 
 	function add() {
-		console.log('Adding.')
+		dispatch({ from: 'MATRIX', type: 'ADD' });
 	}
 
 	function substract() {
-		console.log('Substracting.')
+		dispatch({ from: 'MATRIX', type: 'SUBSTRACT' });
 	}
 
 	function multiply() {
-		console.log('Multiplying.')
+		dispatch({ from: 'MATRIX', type: 'MULTIPLY' });
 	}
 
+	function swap() {
+		dispatch({ from: 'MATRIX', type: 'SWAP' });
+		setState({
+			...state,
+			forms: state.forms.reverse()
+		});
+	}
 
 	return (
 		<div className={style.container}>
 			<div className={style.form}>
-				<MatrixForm id={counter++} size={{ rows: default_size, cols: default_size }} />
+				{state.forms[0]}
 				<div className={style.buttons}>
 					<button onClick={add}>&#43;</button>
 					<button onClick={substract}>&#8722;</button>
 					<button onClick={multiply}>&times;</button>
+					<button onClick={swap}>&#8644;</button>
 				</div>
-				<MatrixForm id={counter++} size={{ rows: default_size, cols: default_size }} />
+				{state.forms[1]}
 			</div>
-			<h1>=</h1>
-			<MatrixDisplay matrix={test_matrix}/>
+			<MatrixDisplay/>
 		</div>
-    )
+	);
 }
