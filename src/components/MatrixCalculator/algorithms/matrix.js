@@ -1,4 +1,4 @@
-import FractionClass from "./fraction.jsx";
+import FractionClass from "./fraction.js";
 
 export class FloatMatrix{
     constructor([...rows] = []) {
@@ -259,6 +259,16 @@ export class FracMatrix{
         if (!k.hasOwnProperty('den')) k = new FractionClass(k);
         this.iterate(e => FractionClass.product(e, k))
         return this;
+    }
+
+    static areEqual(m1, m2) {
+        if (!this.checkDimensions(m1,m2)) return false;
+        for (const i in m1) {
+            for (const j in m1) {
+                if (m1[i][j] !== m2[i][j]) return false;
+            }
+        }
+        return true;
     }
     
     print() {
