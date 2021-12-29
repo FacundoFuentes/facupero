@@ -1,4 +1,3 @@
-import { useRef } from 'react';
 import Style from './Home.module.css';
 import Card from './Cards/Cards';
 
