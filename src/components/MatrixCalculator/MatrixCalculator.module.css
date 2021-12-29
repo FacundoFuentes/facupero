@@ -1,9 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Math&display=swap');
+
+@font-face {
+    font-family: 'Standard Regular';
+    src: url('new-standard.regular.otf') format('otf');
+}
+
+.container *{
+    font-family: 'Standard Regular';
+    font-size: 23px;
+}
+
 .container{
     width: 80%;
     height: 60%;
     align-content: center;
+    justify-content: center;
+    align-items: center;
     margin: 20px 10%;
     padding: 20px;
-    background-color: yellow;
+    background-color: rgb(153, 255, 184);
     display: flex;
+}
+
+.container .form{
+    display:flex;
+}
+.container .form button{
+    height: 30px;
+    width: 30px;
+    border: 0px;
+    margin: 5px 0px;
+}
+
+.buttons{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.container h1{
+    height: fit-content;
 }
