@@ -1,0 +1,15 @@
+.result{
+    margin: 40px 0px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.inverse{
+    margin: 40px 0px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.inverse h2{
+    transform: translateY(-46px);
+}

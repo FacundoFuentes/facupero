@@ -249,7 +249,9 @@ export class FracMatrix{
     }
 
     inverse() {
-        return this.cofactorMatrix().transpose().constant(new FractionClass(this.determinant().den,this.determinant().num))
+        if (this.determinant().num !== 0) {
+            return this.cofactorMatrix().transpose().constant(new FractionClass(this.determinant().den,this.determinant().num))
+        } else throw new Error('Null determinant.')
     }
 
     static LUdecomp(matrix) {

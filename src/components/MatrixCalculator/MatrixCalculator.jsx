@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import MatrixDisplay from './MatrixDisplay/MatrixDisplay';
 import MatrixForm from './MatrixForm/MatrixForm';
-import { FracMatrix } from './algorithms/matrix';
+import Result from './Result/Result';
 import style from './MatrixCalculator.module.css';
 
 export default function MatrixCalculator() {
@@ -14,6 +13,7 @@ export default function MatrixCalculator() {
 		],
 	});
 	const dispatch = useDispatch();
+	const last_action = useSelector(store => store.matrix_calculator.last_action);
 
 	function add() {
 		dispatch({ from: 'MATRIX', type: 'ADD' });
@@ -29,6 +29,7 @@ export default function MatrixCalculator() {
 
 	function swap() {
 		dispatch({ from: 'MATRIX', type: 'SWAP' });
+		dispatch({ from: "MATRIX", type: last_action.type });
 		setState({
 			...state,
 			forms: state.forms.reverse()
@@ -47,7 +48,7 @@ export default function MatrixCalculator() {
 				</div>
 				{state.forms[1]}
 			</div>
-			<MatrixDisplay/>
+			<Result/>
 		</div>
 	);
 }

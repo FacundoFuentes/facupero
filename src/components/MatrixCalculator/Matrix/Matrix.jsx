@@ -1,12 +1,9 @@
 import React from 'react';
-import 'katex/dist/katex.css';
 import MatrixParenthesis from '../MatrixParenthesis';
-import style from './MatrixDisplay.module.css';
-import { useSelector } from 'react-redux';
+import style from './Matrix.module.css';
 import { FracMatrix } from '../algorithms/matrix';
 
-export default function MatrixDisplay() {
-	const matrix = useSelector(store => store.matrix_calculator.display)
+export default function Matrix({matrix}) {
 	let rows, table = null;
 	if (matrix instanceof FracMatrix) {
 		rows = matrix.rows.map((row) =>
@@ -28,7 +25,7 @@ export default function MatrixDisplay() {
 					</table>
 				</MatrixParenthesis>
 				:
-				<span></span>
+				<span>Non Inversible</span>
 			}
 
 		</div>
