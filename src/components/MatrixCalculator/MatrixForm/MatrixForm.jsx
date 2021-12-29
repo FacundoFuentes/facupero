@@ -44,6 +44,7 @@ export default function MatrixForm({ size, id }) {
                 new_row.push(
                     <td key={j}>
                         <input
+                            required
                             key={parseInt(id) + j + i}
                             col={j}
                             row={i}
@@ -58,15 +59,20 @@ export default function MatrixForm({ size, id }) {
             return new_row;
         }).map((row,i) => <tr key={parseInt(id) + i}>{row}</tr>);
 
+    function inverse() {
+        dispatch({ from: 'MATRIX', type: 'INVERSE', id: id });
+    }
+    
     return (
+        <div className={style.matrixForm}>
         <MatrixParenthesis>
-            <div className={style.matrixForm}>
                 <form>
                     <table>
                         <tbody>{formMatrix}</tbody>
                     </table>
                 </form>
-            </div>
         </MatrixParenthesis>
+        <button className={style.inverse} onClick={inverse}>-1</button>
+        </div>
 	);
 }
