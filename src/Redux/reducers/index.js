@@ -3,7 +3,8 @@ import { FracMatrix } from "../../components/MatrixCalculator/algorithms/matrix"
 const initialState = {
     matrix_calculator: {
         forms: {},
-        display: [],
+        result: [],
+        last_action: null,
     }
 }
 
@@ -16,7 +17,8 @@ export default function rootReducer(state = initialState, action) {
                         ...state,
                         matrix_calculator: {
                             ...state.matrix_calculator,
-                            forms: { ...state.matrix_calculator.forms, [action.id]: action.payload}
+                            forms: { ...state.matrix_calculator.forms, [action.id]: action.payload },
+                            last_action: action,
                         }
                     }
                 case 'ADD':
@@ -24,7 +26,8 @@ export default function rootReducer(state = initialState, action) {
                         ...state,
                         matrix_calculator: {
                             ...state.matrix_calculator,
-                            display: FracMatrix.add(state.matrix_calculator.forms[0], state.matrix_calculator.forms[1])
+                            result: FracMatrix.add(state.matrix_calculator.forms[0], state.matrix_calculator.forms[1]),
+                            last_action: action,
                         }
                     }
                 case 'SUBSTRACT':
@@ -32,7 +35,8 @@ export default function rootReducer(state = initialState, action) {
                         ...state,
                         matrix_calculator: {
                             ...state.matrix_calculator,
-                            display: FracMatrix.substract(state.matrix_calculator.forms[0], state.matrix_calculator.forms[1])
+                            result: FracMatrix.substract(state.matrix_calculator.forms[0], state.matrix_calculator.forms[1]),
+                            last_action: action,
                         }
                     }
                 case 'MULTIPLY':
@@ -40,7 +44,23 @@ export default function rootReducer(state = initialState, action) {
                         ...state,
                         matrix_calculator: {
                             ...state.matrix_calculator,
-                            display: FracMatrix.product(state.matrix_calculator.forms[0], state.matrix_calculator.forms[1])
+                            result: FracMatrix.product(state.matrix_calculator.forms[0], state.matrix_calculator.forms[1]),
+                            last_action: action,
+                        }
+                    }
+                case 'INVERSE':
+                    let inverse;
+                    try {
+                        inverse = state.matrix_calculator.forms[action.id].inverse();
+                    } catch (err) {
+                        alert(err);
+                    }
+                    return {
+                        ...state,
+                        matrix_calculator:{
+                            ...state.matrix_calculator,
+                            result: inverse,
+                            last_action: action,
                         }
                     }
                 case 'SWAP': {
@@ -49,6 +69,7 @@ export default function rootReducer(state = initialState, action) {
                         let rev = Object.values(state.matrix_calculator.forms).reverse();
                         obj[i] = rev[i];
                     }
+                    
                     return {
                         ...state,
                         matrix_calculator: {
