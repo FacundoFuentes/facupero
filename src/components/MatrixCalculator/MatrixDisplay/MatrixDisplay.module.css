@@ -1,15 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Math&display=swap');
-
-@font-face {
-    font-family: 'Standard Regular';
-    src: url('new-standard.regular.otf') format('otf');
-}
-
-.display *{
-    font-family: 'Standard Regular';
-    font-size: 23px;
-}
-
 .display{
     width: fit-content;
     align-content: center;
