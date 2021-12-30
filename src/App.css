@@ -6,3 +6,8 @@
   font-family: 'Metrophobic', sans-serif;
   font-size: 18px;
 }
+
+body{
+  height: 100%;
+  background-image: linear-gradient(0deg, rgb(13, 6, 48), rgb(56, 78, 119));
+}
