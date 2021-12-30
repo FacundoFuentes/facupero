@@ -1,19 +1,22 @@
 .main{
-    margin: 15% 5%;
     width: 100%;
-    background-image: url(./background.svg);
+    height: 100vh;
     background-repeat: no-repeat;
     text-align: -webkit-center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
 .main h1{
-    width: fit-content;
+    color: #E6F9AF;
     font-family: 'Geo', sans-serif;
     font-size: 105px
 }
 
 .main h2{
-    width: fit-content;
+    color: #E6F9AF;
     font-family: 'Geo', sans-serif;
     font-size: 50px;
 }
@@ -38,4 +41,8 @@
     color: #18314F;
     background-position-x: 10vw;
     transform: scale(1.3);
+}
+
+.main img{
+    width: 400px;
 }
